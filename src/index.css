@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+    --color-blue-primary: #0D4E86;
+    --color-secondary: #80CAEE;
+    --color-tone-1: #6FD2F9;
+    --color-tone-2: #5AA5FF;
+    --color-tone-3: #2D79D3;
+    --tone-3: #2D79D3;
+    --color-white: #FFFFFF;
+    --color-gray: #EEEEEE;
+    --color-black-1: #1E1E1E;
+    --color-black-2: #211D1E;
+
+    --font-satoshi: 'Satoshi'
+}
+
+ body {
+    @apply font-satoshi
+}
+
+
+.swiper{
+    --swiper-navigation-color: red;
+    --swiper-navigation-size: 25px;
+}

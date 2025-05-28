@@ -1,0 +1,27 @@
+.text-container {
+    /* Glassmorphism effect */
+    /* backdrop-filter: blur(12px); Blurs what's behind it */
+    /*-webkit-backdrop-filter: blur(12px);  For Safari */
+    
+    background: rgba(30, 83, 128, 0.78);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.8px);
+    -webkit-backdrop-filter: blur(8.8px);
+    border: 1px solid rgba(42, 107, 163, 0.3);
+
+}
+
+/* .hover-overlay {
+    position: relative;
+    height: 100%;
+    border-radius: 0.75rem;
+    opacity: 0; 
+}
+.hover-overlay:hover{
+    display: flex;
+    opacity: 1; 
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+} */

@@ -1,0 +1,13 @@
+.article {
+  display: flex;
+  flex: 0 1 calc(50% - 10px);
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 768px) {
+  .article-item {
+    flex: 0 1 100%;
+    /* Full-width articles on smaller screens */
+  }
+}
