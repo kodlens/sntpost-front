@@ -21,6 +21,6 @@
 
 
 .swiper{
-    --swiper-navigation-color: red;
+    --swiper-navigation-color: --color-blue-primary;
     --swiper-navigation-size: 25px;
 }
