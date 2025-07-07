@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import moment from 'moment';
-
-//import { config } from '../../config';
-
 import { FourOhFour } from '../404';
 
 //import { CopyToClipboard } from "react-copy-to-clipboard"
@@ -24,6 +21,7 @@ import TextSkeleton from '../../components/Skeleton/TextSkeleton.tsx';
 import type { Post } from '../../types/article.ts';
 import { config } from '../../config/config.ts';
 import ArticleSkeleton from '../../components/Skeleton/ArticleSkeleton.tsx';
+import { Clock } from 'lucide-react';
 
 
 
@@ -195,7 +193,7 @@ const Article: React.FC = () => {
 																
 															</CopyToClipboard> */}
 															<button
-																className="h-7 w-7 text-blue-500" 
+																className="h-7 w-7 text-blue-900" 
 																onClick={ handleCopyLink }>
 																<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 11.5C9 12.8807 7.88071 14 6.5 14C5.11929 14 4 12.8807 4 11.5C4 10.1193 5.11929 9 6.5 9C7.88071 9 9 10.1193 9 11.5Z" stroke="currentcolor" strokeWidth="1.5"></path> <path opacity="0.5" d="M14.3206 16.8017L9 13.29" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path> <path opacity="0.5" d="M14.4207 6.83984L9.1001 10.3515" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path> <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="currentcolor" strokeWidth="1.5"></path> <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="currentcolor" strokeWidth="1.5"></path> </g></svg>
 															</button>
@@ -224,7 +222,7 @@ const Article: React.FC = () => {
 															
 														</CopyToClipboard> */}
 														<button
-															className="h-7 w-7 text-blue-500" 
+															className="h-7 w-7 text-blue-900" 
 															onClick={ handleCopyLink }>
 															<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9 11.5C9 12.8807 7.88071 14 6.5 14C5.11929 14 4 12.8807 4 11.5C4 10.1193 5.11929 9 6.5 9C7.88071 9 9 10.1193 9 11.5Z" stroke="currentcolor" strokeWidth="1.5"></path> <path opacity="0.5" d="M14.3206 16.8017L9 13.29" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path> <path opacity="0.5" d="M14.4207 6.83984L9.1001 10.3515" stroke="#1C274C" strokeWidth="1.5" strokeLinecap="round"></path> <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="currentcolor" strokeWidth="1.5"></path> <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="currentcolor" strokeWidth="1.5"></path> </g></svg>
 														</button>
@@ -297,16 +295,16 @@ const Article: React.FC = () => {
 
 					{/* <!-- Related Articles Section --> */}
 					<div>
-						<div className='text-xs text-accent4 font-semibold mb-[26px]'>Read Next Article</div>
+						<div className='text-blue-900 font-semibold mb-[26px]'>Read Next Article</div>
 						{/* <!-- Internal Related articles mapping , adding filter to avoid displaying the article on related--> */}
 						{relatedArticles && (relatedArticles.filter(item => item.id !== article?.id).map((related:Post) => (
-							<div key={related?.id} className='mb-[24px] pb-[24px] border-b-1 border-accent4'>
+							<div key={related?.id} className='mb-[24px] pb-[24px] border-b-1 border-blue-900'>
 								<div className='text-accent4 text-[24px] font-bold capitalize'>
 									<Link to={`/dost/${related?.slug}`}>{related?.title}</Link>
 								</div>
-								<div className="flex mt-p10">
+								<div className="flex gap-2 mt-2">
 									<div className='flex items-center'>
-										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
 											viewBox="0 0 20 20" fill="none">
 											<g clipPath="url(#clip0_460_2070)">
 												<path fillRule="evenodd" clipRule="evenodd" 
@@ -314,18 +312,18 @@ const Article: React.FC = () => {
 											</g>
 										</svg>
 									</div>
-									<span className='text-authorShade ml-p20'>
+									<span className='text-blue-900'>
 										{ related?.author_name ? related?.author_name : ( <span>
 											{ related?.author?.lname }, { related?.author?.fname } { related?.author?.mname }
 										</span>) }
 										{related?.author_name}
 									</span>
 								</div>
-								<div className="flex mt-[12px]">
-									<div className="flex items-center">
-										<img src="/images/clock-blue.png" alt="" />
-										<span className='text-authorShade ml-p20'>{  moment(related?.publication_date).format('ll')}</span>
+								<div className="flex items-center gap-2 mt-2">
+									<div>
+										<Clock size={18} className='text-blue-900'/>
 									</div>
+									<div className='text-blue-900'>{  moment(related?.publication_date).format('ll')}</div>
 									{/* <div className="flex items-center">
 										<img src="/images/eye-blue.svg" alt="" />
 										<span className='text-authorShade ml-p20'>99</span>

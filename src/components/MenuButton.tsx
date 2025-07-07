@@ -53,7 +53,11 @@ const MenuButton = () => {
 
     const renderCategories = () => {
         const mappedCategories = categories?.map((category, index) => (
-            <Link className="w-full hover:bg-blue-50 px-6 py-1"  key={index}
+            <Link className="w-full hover:bg-blue-50 px-6 py-1" 
+                key={`menu${index}`}
+                onClick={()=>{
+                    setOpen(false)
+                }}
                 to={`/category/${category.slug}`}>
                 {category.title}
             </Link>
@@ -61,6 +65,7 @@ const MenuButton = () => {
 
         mappedCategories.push(
             <Link className="w-full hover:bg-blue-50 px-6 py-1"
+                key='archives'
                 to="/archives">
                 Archives
             </Link>
@@ -82,7 +87,7 @@ const MenuButton = () => {
             </button>
 
             {/* Dropdown panel */}
-            {open && (
+            { open && (
                 <div className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-blue-100 ring-opacity-5">
                     <div className="flex flex-col w-[300px] p-4">
                         {renderCategories()}

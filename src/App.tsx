@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage';
 import MainLayout from './layouts/MainLayout';
 import { lazy } from 'react';
 const SingleArticle = lazy(() => import('./pages/reader/article'));
+const ArticlesByCategory = lazy(() => import('./pages/articles-by-category'));
 
 
 function App() {
@@ -15,24 +16,22 @@ function App() {
       <Route //responsible for routing FrontEnd UI (eshen, code tracing)
         path="/dost"
         element={<MainLayout />}>
-        
         <Route path=":slug" element={<SingleArticle />} />
+      </Route>
 
-        {/* <Route path="/category" element={<MainLayout />} >
-          <Route path=":slug" element={<ArticlesByCategory />} key="category-route"/>
-        </Route> */}
+      <Route path="/category" element={<MainLayout />} >
+        <Route path=":slug" element={<ArticlesByCategory />} key="category-route"/>
+        </Route>
 
         {/* <Route path="/magazines-all" element={<MagazinesAll />} />
 					<Route path="/search/:search" element={<SearchResult />} />
 					<Route path="/magazines" element={<MainLayout />} >
 						<Route path="flipbook/:slug" element={<MagazinePDFFlipBook />} key="magazine-route"/>
         </Route> */}
-        
+
         {/* <Route element={<MainLayout />} >
           <Route path="/archives" element={<ArchiveIndex />} />
         </Route> */}
-
-      </Route>
 
     </Routes>
   )
