@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import './index.css'
 import type { Article } from '../../types/article';
 import { config } from '../../config/config';
 import axios from 'axios';
 import Loader from '../../components/Loader';
-import { article } from 'motion/react-client';
 import moment from 'moment';
-import "animate.css/animate.compat.css"
 import { motion } from 'motion/react';
 
 const ArticlesByCategory: React.FC = ( ) => {
