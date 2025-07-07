@@ -25,7 +25,6 @@ const FeaturedArticles: React.FC = () => {
         }).catch(err =>{
             setLoading(false)
             console.log(err);
-            
         })
     }
 
@@ -81,18 +80,22 @@ const FeaturedArticles: React.FC = () => {
                                         {/* left div , main featured*/}
                                         <div className="flex-1">
 
-                                            <div className="relative overflow-hidden h-[610px]" style={{
-                                                backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[0]?.featured_image})`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                borderRadius: '15px',
-                                            }}>
+                                            <div className="relative overflow-hidden h-[610px] group">
+
+                                                <div className="h-full transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
+                                                    backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[0]?.featured_image})`,
+                                                    backgroundSize: 'cover',
+                                                    backgroundPosition: 'center',
+                                                    borderRadius: '15px',
+                                                }}>
+                                                </div>
+
                                                 <div className="text-container absolute bottom-0 py-6 px-4">
-                                                    <div className="font-bold text-articleTitle text-md mb-2">
+                                                    <div className="font-bold text-2xl text-white text-md mb-2">
                                                         {truncate(articles[0]?.title ? articles[0]?.title : '', 30)}
                                                     </div>
                                                     <div className="">
-                                                        <div className="text-justify text-white text-sm">
+                                                        <div className="text-justify text-white">
                                                             {truncate(articles[0]?.excerpt ? articles[0]?.excerpt : '', 30)}
                                                         </div>
                                                         <div className="mt-4">
@@ -108,63 +111,72 @@ const FeaturedArticles: React.FC = () => {
                                         {/* right div */}
                                         <div className="flex flex-col gap-2 flex-1">
                                             <div className="flex gap-2 flex-col md:flex-row">
-                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden" style={{
-                                                    backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[1]?.featured_image})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center'
-                                                }}>
+                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden group">
+                                                    <div className="h-full transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
+                                                        backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[1]?.featured_image})`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition: 'center'
+                                                    }}>
+                                                        
+                                                    </div>
                                                     <div className="text-container absolute bottom-0 py-2 px-4">
-                                                        <div className="font-bold text-articleTitle text-md mb-2">
+                                                        <div className="font-bold text-lg text-white mb-2">
                                                             <Link to={`/dost/${articles[1]?.slug}`}>
                                                                 {truncate(articles[1]?.title ? articles[1]?.title : '', 30)}
                                                             </Link>
                                                         </div>
-                                                    
                                                     </div>
                                                 </div>
-                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden" style={{
-                                                    backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[2]?.featured_image})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center'
-                                                }}>
+                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden group">
+                                                    <div className="h-full transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
+                                                        backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[2]?.featured_image})`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition: 'center'
+                                                    }}>
+                                                        
+                                                    </div>
                                                     <div className="text-container absolute bottom-0 py-2 px-4">
-                                                        <div className="font-bold text-articleTitle text-md mb-2">
+                                                        <div className="font-bold text-lg text-white mb-2">
                                                             <Link to={`/dost/${articles[2]?.slug}`}>
                                                                 {truncate(articles[2]?.title ? articles[2]?.title : '', 30)}
                                                             </Link>
                                                         </div>
-                                                    
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div className="flex gap-2 flex-col md:flex-row">
-                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden" style={{
-                                                    backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[3]?.featured_image})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center'
-                                                }}>
+                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden group">
+                                                    <div className="h-full transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
+                                                        backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[3]?.featured_image})`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition: 'center'
+                                                    }}>
+                                                        
+                                                    </div>
                                                     <div className="text-container absolute bottom-0 py-2 px-4">
-                                                        <div className="font-bold text-articleTitle text-md mb-2">
+                                                        <div className="font-bold text-lg text-white mb-2">
                                                             <Link to={`/dost/${articles[3]?.slug}`}>
                                                                 {truncate(articles[3]?.title ? articles[3]?.title : '', 30)}
                                                             </Link>
                                                         </div>
-                                                    
                                                     </div>
                                                 </div>
-                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden" style={{
-                                                    backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[4]?.featured_image})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center'
-                                                }}>
+
+                                                <div className="rounded-xl relative w-full h-[300px] overflow-hidden group">
+                                                    <div className="h-full transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
+                                                        backgroundImage: `url(${config.baseUri}/storage/featured_images/${articles[4]?.featured_image})`,
+                                                        backgroundSize: 'cover',
+                                                        backgroundPosition: 'center'
+                                                    }}>
+                                                        
+                                                    </div>
                                                     <div className="text-container absolute bottom-0 py-2 px-4">
-                                                        <div className="font-bold text-articleTitle text-md mb-2">
+                                                        <div className="font-bold text-lg text-white mb-2">
                                                             <Link to={`/dost/${articles[4]?.slug}`}>
                                                                 {truncate(articles[4]?.title ? articles[4]?.title : '', 30)}
                                                             </Link>
                                                         </div>
-                                                    
                                                     </div>
                                                 </div>
                                             </div>

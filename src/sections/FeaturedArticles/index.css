@@ -25,3 +25,14 @@
     background-color: rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
 } */
+
+@keyframes zoomHover {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.hover-zoom:hover {
+  animation: zoomHover 0.5s ease forwards;
+}
+

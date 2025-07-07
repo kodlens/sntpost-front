@@ -45,16 +45,16 @@ export default function LatestArticles() {
 
     return (
         <section className='w-full bg-white'>
-            {loading ? (
+            { loading ? (
                 <Loader />
             ) : (<>
                 <div className="font-extrabold text-[2rem] text-center my-20 tracking-wider"></div>
                 <div className='lg:w-[1240px] mx-auto '>
 
                     <div className='flex flex-col lg:flex-row flex-wrap gap-[16px] '>
-                        {articles.map(article => (
+                        { articles.map(article => (
 
-                            <div key={article.id} className='flex flex-col lg:flex-row gap-2 shadow-sm border mx-2 lg:m-0 lg:w-full lg:p-6 py-4 article rounded-md mb-8'>
+                            <div key={article.id} className='flex flex-col lg:flex-row gap-2 shadow-sm border border-gray mx-2 lg:m-0 lg:w-full lg:p-6 py-4 article rounded-md mb-8'>
 
                                 <div className='w-full h-[200px] lg:w-[300px] lg:h-[200px] md:h-[400px] border-1 border-grey-700' style={{
                                     backgroundImage: `url(${config.baseUri}/storage/featured_images/${article.featured_image})`,
@@ -64,10 +64,10 @@ export default function LatestArticles() {
                                 </div>
 
                                 <div className='w-full'>
-                                    <div className='font-extrabold text-red-600 text-md mb-2'>{article.category?.title}</div>
-                                    <Link className='text-md font-bold mb-10' to={`/dost/${article.slug}`}> {article.title}</Link>
-                                    <div className="border my-2"></div>
-                                    <div className='text-justify text-[18px]'>{truncate(article.excerpt ? article.excerpt : '', 15)}</div>
+                                    <div className='font-extrabold text-red-600 text-lg mb-2'>{article.category?.title}</div>
+                                    <Link className='text-md font-bold mb-10 text-lg' to={`/dost/${article.slug}`}> {article.title}</Link>
+                                    <div className="border border-gray my-2"></div>
+                                    <div className='text-justify'>{truncate(article.excerpt ? article.excerpt : '', 15)}</div>
                                 </div>
                             </div>
                         ))}

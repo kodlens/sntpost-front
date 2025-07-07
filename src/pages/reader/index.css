@@ -1,0 +1,18 @@
+.ck.ck-content {
+    min-height: 300px;
+    border-radius: 15px;
+    max-width: none !important;
+    /* @apply prose; */
+    font-size: 18px;
+}
+
+.ck.ck-content p {
+    margin: 15px 0;
+}
+
+figcaption {
+    background-color: rgb(241, 241, 241);
+    font-size: 1rem;
+    line-height: normal;
+    padding: 10px;
+}
