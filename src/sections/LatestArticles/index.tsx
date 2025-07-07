@@ -49,7 +49,7 @@ export default function LatestArticles() {
                 <Loader />
             ) : (<>
                 <div className="font-extrabold text-[2rem] text-center my-20 tracking-wider"></div>
-                <div className='lg:w-[1240px] mx-auto '>
+                <div className='xl:w-7xl mx-auto '>
 
                     <div className='flex flex-col lg:flex-row flex-wrap gap-[16px] '>
                         { articles.map(article => (

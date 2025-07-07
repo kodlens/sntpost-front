@@ -57,7 +57,7 @@ const FeaturedArticles: React.FC = () => {
             backgroundPosition: 'center'}}>
 
             <div className="mx-2 
-                lg:w-[1240px] lg:mx-auto">
+                xl:w-7xl lg:mx-auto">
             
                 { loading ? (
                     <Loader height="h-[400px]" />
