@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import MainLayout from './layouts/MainLayout';
 import { lazy } from 'react';
+import ArchiveIndex from './pages/archives';
 const SingleArticle = lazy(() => import('./pages/reader/article'));
 const ArticlesByCategory = lazy(() => import('./pages/articles-by-category'));
 
@@ -29,9 +30,9 @@ function App() {
 						<Route path="flipbook/:slug" element={<MagazinePDFFlipBook />} key="magazine-route"/>
         </Route> */}
 
-        {/* <Route element={<MainLayout />} >
+        <Route element={<MainLayout />} >
           <Route path="/archives" element={<ArchiveIndex />} />
-        </Route> */}
+        </Route>
 
     </Routes>
   )

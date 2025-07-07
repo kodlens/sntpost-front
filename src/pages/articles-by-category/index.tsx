@@ -109,7 +109,7 @@ const ArticlesByCategory: React.FC = ( ) => {
 
                 { loading ? (<Loader />) : (
 
-                    <div className='lg:w-[1240px] mx-2 lg:mx-auto '>
+                    <div className='xl:w-7xl mx-2 lg:w-5xl lg:mx-auto'>
 
                         <div className='mb-10 mx-2'>
                             <span className='bg-red-700 py-2 px-4 font-extrabold md:text-2xl text-xl text-white'>

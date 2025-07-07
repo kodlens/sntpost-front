@@ -16,7 +16,7 @@ const MainLayout = ({ children }: { children?: React.ReactNode }) => {
                 <Outlet />
             </main>
             
-            {/* <MainFooter /> */}
+            <MainFooter />
             
         </div>
     )

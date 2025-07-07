@@ -66,6 +66,9 @@ const MenuButton = () => {
         mappedCategories.push(
             <Link className="w-full hover:bg-blue-50 px-6 py-1"
                 key='archives'
+                 onClick={()=>{
+                    setOpen(false)
+                }}
                 to="/archives">
                 Archives
             </Link>

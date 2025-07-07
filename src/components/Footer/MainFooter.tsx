@@ -32,7 +32,7 @@ const MainFooter: React.FC = () => {
     }, []);
 
     return (
-        <footer className="w-full bg-black-3 px-[23px] py-[30px] lg:p-p100">
+        <footer className="w-full bg-black-2 px-[23px] py-[30px] lg:p-p100">
             <div className="w-full">
 
                 <div className="flex justify-evenly lg:flex-row flex-col">

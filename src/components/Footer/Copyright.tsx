@@ -11,7 +11,7 @@ const Copyright: React.FC = () => {
                         className='mb-p20 mx-auto'
                         src={'/footer_logo.png'}
                         alt="Footer logo"
-                        onError={(e)=>{(e.target as HTMLImageElement).onerror = null; (e.target as HTMLImageElement).src="/footer_logo.png"}}
+                        // onError={(e)=>{(e.target as HTMLImageElement).onerror = null; (e.target as HTMLImageElement).src="/images/footer_logo.png"}}
                     />
                 </Link>
                 
