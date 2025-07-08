@@ -38,7 +38,7 @@ const MainFooter: React.FC = () => {
                 <div className="flex justify-evenly lg:flex-row flex-col">
 
                     <div className="flex flex-col gap-2">
-                        <div className="text-white font-bold mb-5">Visit Us</div>
+                        <div className="text-white font-bold mb-5">VISIT US</div>
                         <div className="flex items-center">
                             <img
                                 className='mr-2'
@@ -55,7 +55,7 @@ const MainFooter: React.FC = () => {
 
 
                         {/* add my-5 if socia media site is added */}
-                        <div className="text-white font-bold my-5">Contact Us</div>
+                        <div className="text-white font-bold my-5">CONTACT US</div>
                         <div className="flex items-center">
                             <img
                                 className='mr-2'
@@ -75,7 +75,7 @@ const MainFooter: React.FC = () => {
 
                         <div className="flex flex-col">
 
-                            <div className="text-white font-bold mb-5">Categories</div>
+                            <div className="text-white font-bold mb-5">CATEGORIES</div>
 
                             <div className="flex gap-6">
                                 { loading ? (
@@ -87,7 +87,7 @@ const MainFooter: React.FC = () => {
                                     <div className="flex flex-col">
                                         { categories?.slice(0,8).map(item => (
                                             <Link to={`/category/${item.slug}`} 
-                                                className="text-sm text-white" 
+                                                className="text-sm py-2 px-2 text-white hover:text-[1rem] transform ease-in duration-150" 
                                                 key={item.id}>{item.title}
                                             </Link>
                                         ))}
@@ -96,7 +96,7 @@ const MainFooter: React.FC = () => {
                                     <div className="flex flex-col">
                                         { categories?.slice(8).map(item => (
                                             <Link to={`/category/${item.slug}`} 
-                                                className="text-sm text-white" 
+                                                className="text-sm px-2 py-2 text-white hover:text-[1rem] transform ease-in duration-150" 
                                                 key={item.id}>{item.title}
                                             </Link>
                                         ))}
