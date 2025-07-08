@@ -10,7 +10,7 @@ const NewsLetter:React.FC = ()  => {
     const [email, setEmail] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [notif, setNotif] = useState<boolean>(false);
-    const [errors, setErrors] = useState<any>({});
+    const [errors, setErrors] = useState<any>(null);
 
     const handleClickSubscribe = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
