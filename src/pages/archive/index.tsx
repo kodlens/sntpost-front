@@ -41,9 +41,9 @@ const ArchiveIndex: React.FC = () => {
     loadArchiveArticles();
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    //console.log(e)
-  };
+  // const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   //console.log(e)
+  // };
 
   return (
     <div className="mx-4 my-[100px] lg:w-[1240px] lg:mx-auto">
@@ -59,7 +59,6 @@ const ArchiveIndex: React.FC = () => {
                 <h4 id="accordion-open-heading-1">
                   <button
                     type="button"
-                    onClick={handleClick}
                     className={
                       "flex items-center justify-between w-full border-b-0 p-5 font-medium rtl:text-right  border border-gray-200  focus:ring-4 focus:ring-gray-200 gap-3 "
                     }

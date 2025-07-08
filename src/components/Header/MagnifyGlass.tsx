@@ -1,11 +1,9 @@
-import React, { useState } from "react";
 import './index.css'
 import { useNavigate } from "react-router-dom";
 
 const MagnifyGlass: React.FC = () =>{
     const navigate = useNavigate(); // This should work now
 
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     
     const handleModal = () => {
         // if(isModalOpen)

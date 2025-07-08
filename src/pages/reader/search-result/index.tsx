@@ -51,9 +51,10 @@ const SearchResult: React.FC = () => {
             setCurrentPage(res.data.current_page)
             setPerPage(res.data.per_page)
             
-        }).catch(err => {
+        }).catch(() => {
             setLoading(false)
             setIsError(true)
+            
         })
     }
 

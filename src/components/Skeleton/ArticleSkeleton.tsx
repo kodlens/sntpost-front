@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ArticleSkeleton () {
   return (
     <div role="status" className="w-full animate-pulse my-4">

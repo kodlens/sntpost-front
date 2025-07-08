@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Slider from 'react-slick';
 import './index.css';
 import { Link } from 'react-router-dom';
@@ -7,19 +6,19 @@ import ReactPlayer from 'react-player/youtube'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './index.css';
-import axios from "axios";
-import { config } from "../../config/config";
+// import axios from "axios";
+// import { config } from "../../config/config";
 
 const DostV: React.FC = () => {
 
 
-    const [data, setData] = useState<any>([]);
+    // const [data, setData] = useState<any>([]);
 
-    const loadAsync = () => {
-        axios.get(`${config.baseUri}/api/load-dostv`).then(res=>{
-            setData(res.data)
-        })
-    }
+    // const loadAsync = () => {
+    //     axios.get(`${config.baseUri}/api/load-dostv`).then(res=>{
+    //         setData(res.data)
+    //     })
+    // }
 
     //const { title, description, featured_image, sectionContent., button_text1, button_text2, button_link2, videos } = sectionContent;
     //this is static for the meantime and will be rebuild in final stage
