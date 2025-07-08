@@ -71,15 +71,14 @@ const FeaturedVideoTwoLayout: React.FC = () => {
     }
 
     return (
-        <section className="lg:w-[1240px] lg:mx-auto mx-2 my-p100">
-            <div className="mt-p32 mb-p43 mx-auto">
+        <section className="lg:w-7xl lg:mx-auto mx-2">
+            <div className="mt-10 mx-auto">
                 <div className="flex justify-center">
                     <div className="w-full lg:block text-center lg:text-center lg:w-1/3">
-                        <h2 className="text-title leading-snug text-black font-bold lg:text-40-px">{getBlackTitle(sectionContent.title?.trim() ?? '')} <span className="text-accent4">{getBlueTitle(sectionContent.title?.trim() ?? '')}</span></h2>
-                        <p className="mt-p25 text-center lg:text-start text-xxs lg:mt-p40 lg:text-xs lg:leading-150-p">{sectionContent.description}</p>
-                        <Link className="block mt-p25 py-p10 px-p20 bg-accent3 text-center text-white font-bold text-xs lg:mt-p40" target="_blank" to={sectionContent.button_link ?? '#'}>{sectionContent.button_text}</Link>
+                        <h2 className="text-[2.3rem] leading-snug text-black font-bold">{getBlackTitle(sectionContent.title?.trim() ?? '')} <span className="text-accent4">{getBlueTitle(sectionContent.title?.trim() ?? '')}</span></h2>
+                        <p className="text-center">{sectionContent.description}</p>
+                        <Link className="block mt-4 py-3 bg-blue-400 text-center text-white font-bold" target="_blank" to={sectionContent.button_link ?? '#'}>{sectionContent.button_text}</Link>
                     </div>
-                    
                 </div>
                 <div className="flex flex-col md:flex-row gap-6 mt-10 mx-auto">
                     {sectionContent.videos?.map((video, index) => (

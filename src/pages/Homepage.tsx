@@ -6,6 +6,7 @@ import MagazineSlider from "../sections/MagazineSlider";
 import FeaturedMagazine from "../sections/FeaturedMagazine";
 import FeaturedVideoTwoLayout from "../sections/FeaturedVideoTwoLayout";
 import NewsLetter from "../sections/NewsLetter";
+import DostV from "../sections/Dostv";
 
 const Homepage: React.FC = () => {
 
@@ -22,6 +23,8 @@ const Homepage: React.FC = () => {
                 <FeaturedMagazine />
                 
                 <MagazineSlider />
+
+                <DostV />
 
                 <FeaturedVideoTwoLayout />
 

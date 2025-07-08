@@ -82,7 +82,7 @@ export default function MagazineSlider() {
                 <Loader />
             ) : (
                 <section className="w-full mt-15 mb-10">
-                    <div className="lg:w-[1240px] lg:mx-auto mx-2 relative">
+                    <div className="lg:w-7xl lg:mx-auto mx-2 relative">
 
                         <div className="font-extrabold tracking-wider text-[1.8rem] lg:text-[2.3rem] text-center mb-6">S&T Post Archives</div>
                         {/* <div className="relative">
