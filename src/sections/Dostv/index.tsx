@@ -85,7 +85,7 @@ const DostV: React.FC = () => {
                     
                     <div className="lg:w-1/3 w-full text-center py-2">
                         <h2 className="text-2xl font-bold text-white lg:text-[40px] lg:text-left">DOST<span className="text-blue-500">v</span></h2>
-                        <p className="mx-2 text-white my-2 lg:text-left lg:my-p40">{sectionContent.description}</p>
+                        <p className="mx-2 text-white my-2 text-justify">{sectionContent.description}</p>
                         
                         <div className="mx-auto w-[380px]">
                             <Slider

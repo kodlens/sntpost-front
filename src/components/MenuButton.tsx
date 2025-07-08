@@ -82,7 +82,7 @@ const MenuButton = () => {
         <>
         <div className="relative inline-block text-left" ref={dropdownRef}>
             <button
-                className="flex items-center h-full md:ml-4 px-4 hover:bg-blue-200 hover:cursor-pointer transition ease-in-out duration-200"
+                className="flex items-center h-full md:ml-4 px-4 py-2 hover:bg-blue-200 hover:cursor-pointer transition ease-in-out duration-200"
                 onClick={()=>setOpen(!open)}>
                 
                 <span className="hidden md:inline uppercase font-semibold text-black mr-1">Menu</span>
