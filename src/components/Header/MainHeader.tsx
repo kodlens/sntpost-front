@@ -1,5 +1,7 @@
 import AppLogo from "../AppLogo";
 import MenuButton from "../MenuButton";
+import MagnifyGlass from "./MagnifyGlass";
+import Search from "./Search";
 
 const MainHeader = () => {
     return (
@@ -12,8 +14,18 @@ const MainHeader = () => {
                     </div>
 
 
-                    <div className="ml-auto">
-                        <MenuButton />
+                    <div className="ml-auto flex">
+                        <div className="h-full items-center hidden md:flex">
+                            <Search />
+                        </div>
+                        
+                        <div className="h-full relative">
+                           <MagnifyGlass />
+                        </div>
+
+                        <div>
+                            <MenuButton />
+                        </div>
                     </div>
 
                 </div>

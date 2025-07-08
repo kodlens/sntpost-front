@@ -1,0 +1,29 @@
+.search-modal {
+    position: fixed;
+    top:0; 
+    left:0;
+    z-index: 2;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(3, 3, 3, 0.8);  /* Background with 50% opacity */
+    opacity: 0;
+    visibility: hidden;  /* Make the modal invisible and non-interactive */
+    transition: opacity 0.2s ease-in-out, visibility 0s 0.2s;  /* Transition opacity, and visibility delay */
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;  /* Make the modal visible and interactive */
+    transition: opacity 0.2s ease-in-out, visibility 0s;  /* No delay on visibility */
+}
+
+.search button {
+    height: 42px;
+    background-color: #0D4E86 !important;
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.search button:hover {
+    background-color: #1f6aac !important;
+}
