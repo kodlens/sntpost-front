@@ -99,9 +99,8 @@ const MainFooter: React.FC = () => {
                                                 className="text-sm px-2 py-2 text-white hover:text-[1rem] transform ease-in duration-150" 
                                                 key={item.id}>{item.title}
                                             </Link>
-                                        ))}
+                                        )) }
                                     </div>
-                                   
                                 </>) }
                             </div>
                         </div>
