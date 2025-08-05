@@ -37,8 +37,14 @@ const MainBanner: React.FC = () => {
         <Loader />
       ) : (
         <div className="mb-0">
-          <img src={`${config.baseUri}/storage/banner_images/${banner}`} />
+          <img src={`${config.baseUri}/storage/banner_images/${banner}`} alt={'Banner'} loading={"lazy"} />
         </div>
+        // <div className="h-[calc(100vh-70px)] transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
+        //   backgroundImage: `url(${config.baseUri}/storage/banner_images/${banner})`,
+        //   backgroundSize: 'cover',
+        //   backgroundPosition: 'center',
+        //   borderRadius: '0',
+        // }}></div>
       )}
     </>
   )

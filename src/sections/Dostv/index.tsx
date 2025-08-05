@@ -58,7 +58,7 @@ const DostV: React.FC = () => {
     }
 
     return (
-        <section className='h-[640px] flex my-20'
+        <section className='md:h-[640px] flex my-20'
             style={{
                 background: `url(/images/dost-v-background.png)`,
                 backgroundRepeat: 'no-repeat',
@@ -68,7 +68,7 @@ const DostV: React.FC = () => {
             
             {/* <img className="absolute top-0 w-full" src="/images/dost-v-background.png" alt="" /> */}
             
-            <div className="lg:w-7xl w-full lg:mx-auto flex">
+            <div className="lg:w-7xl lg:mx-auto flex">
                 <div className="flex gap-10 items-center justify-center">
                     {/* Featured Image */}
                     <div className="hidden relative lg:flex lg:w-2/3">
@@ -83,11 +83,11 @@ const DostV: React.FC = () => {
                         <img className="p-10 mx-auto z-1" src={sectionContent.featured_image ?? 'https://fakeimg.pl/600x400/000000/ffffff?text=Image+Placeholder'} alt="" />
                     </div>
                     
-                    <div className="lg:w-1/3 w-full text-center py-2">
+                    <div className="lg:w-1/3 text-center py-2">
                         <h2 className="text-2xl font-bold text-white lg:text-[40px] lg:text-left">DOST<span className="text-blue-500">v</span></h2>
                         <p className="mx-2 text-white my-2 text-justify">{sectionContent.description}</p>
                         
-                        <div className="mx-auto w-[380px]">
+                        <div className="mx-auto max-w-[300px]">
                             <Slider
                                 className=""
                                 {...settings}>
@@ -95,9 +95,9 @@ const DostV: React.FC = () => {
                                     <div key={video.video + index}>
                                         <ReactPlayer
                                             className="react-player"
-                                            width={380}
+                                            width={360}
                                             style={{
-                                               
+
                                                 maxHeight: "240px",
                                             }}
                                             url={video.video}

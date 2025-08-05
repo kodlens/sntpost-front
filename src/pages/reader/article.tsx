@@ -42,6 +42,10 @@ const Article: React.FC = () => {
 		setArticle(resArticle.data)
 	}
 
+	useEffect(() => {
+		window.scrollTo({ top: 0, behavior: 'smooth' }); // or 'auto' for instant scroll
+	}, [article]);
+
 	const loadRelatedArticles = async () => {
 		
 		const resRelated = await axios.get<Post[]>(`${config.baseUri}/api/articles/load-related-articles/${article?.title}`, {
