@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "../FeaturedVideo/card";
 import axios from "axios";
 import type { Videos } from "../../types/videos";
+import Loader from "../../components/Loader";
 
 
 
@@ -29,6 +30,9 @@ const FeaturedVideoTwoLayout: React.FC = () => {
         loadVideos()
     }, [])
 
+    if(loading){
+        <Loader></Loader>
+    }
 
     return (
         <section className="lg:w-7xl lg:mx-auto mx-2">

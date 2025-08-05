@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player/youtube'
 
 interface CardProps {
     card: {
-        video?: string
+        link?: string
         title?: string
         description?: string
         button_text?: string
@@ -14,7 +14,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ card }: CardProps) => {
     
-    const { video, title } = card;
+    const { link, title } = card;
 
     return (
         <div className="w-full lg:w-full mt-p25 lg:mt-0">
@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({ card }: CardProps) => {
                
                 <ReactPlayer
                     className="react-player !max-w-full !w-full h-[220px]"
-                    url={video}
+                    url={link}
                     controls={true} />
             </div>
             {/* Body */}
