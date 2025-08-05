@@ -24,7 +24,7 @@ const Search: React.FC = () => {
 
     
     return (
-        <input className="rounded-lg" type="text" name="" 
+        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-0 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name=""
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Search" id="" />

@@ -142,14 +142,14 @@ const SearchResult: React.FC = () => {
             <MainLayout>
                 { loading ? <Loader /> : (
                     <section className="lg:w-[1240px] lg:mx-auto m-2 md:m-6 min-h-screen my-10">
-                        <div className="mt-10 font-bold text-title text-accent4">RESULT OF <span className="italic">{search}</span></div>
+                        <div className="mt-10 font-bold text-title text-accent4">RESULT(S) OF <span className="italic">{search}</span></div>
                         <div className="text-sm text-gray-500">Result(s) {total}</div>
 
                         <div className="mt-5">
                             { articles.map(article => (
                                 <div key={article.id} className="mb-4 py-4 border-b">
                                     <div className="my-4 font-bold text-lg">
-                                        <Link className="text-accent4 text-2xl" to={`/dost/${article.slug}`}>
+                                        <Link className="text-accent4 text-2xl text-blue-950" to={`/dost/${article.slug}`}>
                                             {article.title}
                                         </Link>
                                         

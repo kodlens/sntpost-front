@@ -300,7 +300,7 @@ const Article: React.FC = () => {
 						{relatedArticles && (relatedArticles.filter(item => item.id !== article?.id).map((related:Post) => (
 							<div key={related?.id} className='mb-[24px] pb-[24px] border-b-1 border-blue-900'>
 								<div className='text-accent4 text-[24px] font-bold capitalize'>
-									<Link to={`/dost/${related?.slug}`}>{related?.title}</Link>
+									<Link className='text-blue-950' to={`/dost/${related?.slug}`}>{related?.title}</Link>
 								</div>
 								<div className="flex gap-2 mt-2">
 									<div className='flex items-center'>

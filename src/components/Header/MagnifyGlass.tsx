@@ -29,7 +29,6 @@ const MagnifyGlass: React.FC = () =>{
             if(search){
                 navigate('/search/' + search.value);
                 handleModal()
-
             }
             // Redirect to another page when Enter is pressed
         }
@@ -66,10 +65,9 @@ const MagnifyGlass: React.FC = () =>{
                     
                     <div className="mx-4 h-screen flex justify-center m-[-30px]">
                         <div className="flex items-center search w-full">
-                            <input type="text" className="w-full" placeholder="Search" maxLength={100} id="searchtext" onKeyDown={handleKeyDown}/>
+                            <input type="text" className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm outline-0 focus:ring-blue-500 focus:border-blue-500 block p-2.5" placeholder="Search" maxLength={100} id="searchtext" onKeyDown={handleKeyDown}/>
                             <button className="px-2 text-sm font-bold bg-white" onClick={handleSearch}>Search</button>
                         </div>
-                    
                     </div>
                 </div>
             </div>

@@ -130,7 +130,7 @@ const ArticlesByCategory: React.FC = ( ) => {
                                 </div>
                                
                                 <div className="font-bold text-xl lg:text-2xl mt-2">
-                                    <Link to={`/dost/${articles[0]?.slug}`}>{ articles[0]?.title }</Link>
+                                    <Link className={'text-blue-950'} to={`/dost/${articles[0]?.slug}`}>{ articles[0]?.title }</Link>
                                 </div>
                                 <div className='text-gray-600 mb-2'>
                                     <span className='font-bold'>Date published:</span> { moment(articles[0]?.publication_date).format('ll') }
@@ -155,7 +155,7 @@ const ArticlesByCategory: React.FC = ( ) => {
                                         }}>  
                                         </div>
                                         <div className="w-full">
-                                            <Link className='font-bold text-blue-900 hover:text-blue-950 text-xl lg:text-xl lg:text-left' to={`/dost/${article?.slug}`}>{ article?.title }</Link>
+                                            <Link className='font-bold text-blue-950 hover:text-blue-950 text-xl lg:text-xl lg:text-left' to={`/dost/${article?.slug}`}>{ article?.title }</Link>
                                             {/* <div className='font-bold'> { article.publication_date } </div> */}
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@ const ArticlesByCategory: React.FC = ( ) => {
                                             </div>
                                         </div>
                                         <div className="w-full mt-2">
-                                            <Link className='font-bold text-xl' to={`/dost/${article?.slug}`}>{ article?.title }</Link>
+                                            <Link className='font-bold text-xl text-blue-950' to={`/dost/${article?.slug}`}>{ article?.title }</Link>
                                             {/* <div className='font-bold'> { article.publication_date } </div> */}
                                         </div>
                                         <div className='text-gray-600 mb-2'>
