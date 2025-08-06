@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Card from "../FeaturedVideo/card";
 import axios from "axios";
 import type { Videos } from "../../types/videos";
 import Loader from "../../components/Loader";
-
-
-
+import Card from "../FeaturedVideo/card";
 
 const FeaturedVideoTwoLayout: React.FC = () => {
 
@@ -17,8 +14,8 @@ const FeaturedVideoTwoLayout: React.FC = () => {
         setLoading(true)
 
         axios.get(`/api/videos/load-featured-videos`).then(res=>{
-            setLoading(false)
             setVideos(res.data)
+            setLoading(false)
         }).catch(err => {
             setLoading(false)
             console.log(err);
