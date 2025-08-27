@@ -20,7 +20,7 @@ const Homepage: React.FC = () => {
 
                 <LatestArticles />
 
-                <FeaturedMagazine />
+               <FeaturedMagazine />
                 
                 <MagazineSlider />
 

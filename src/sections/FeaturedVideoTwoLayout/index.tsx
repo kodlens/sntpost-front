@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import type { Videos } from "../../types/videos";
 import Loader from "../../components/Loader";
 import Card from "../FeaturedVideo/card";
+import { useQuery } from "@tanstack/react-query";
+import { config } from "../../config/config";
 
-const FeaturedVideoTwoLayout: React.FC = () => {
-
-    const [videos, setVideos] = useState<Videos[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
+const FeaturedVideoTwoLayout = () => {
     
-    const loadVideos = () => {
-        setLoading(true)
 
-        axios.get(`/api/videos/load-featured-videos`).then(res=>{
-            setVideos(res.data)
-            setLoading(false)
-        }).catch(err => {
-            setLoading(false)
-            console.log(err);
-            throw err
-        })
-    }
+    const { data, isFetching } = useQuery<Videos[]>({
+        queryKey: ['featured_videos'],
+        queryFn: async () => {
+            const res = await axios.get(`${config.baseUri}/api/videos/load-featured-videos`,{
+                headers: {
+                    Accept: 'application/json',
+                    'Authorization': `Bearer ${config.apiToken}`
+                }
+            });
+            return res.data
+        }
+    });
 
-    useEffect(()=>{
-        loadVideos()
-    }, [])
 
-    if(loading){
+
+    if(isFetching){
         <Loader></Loader>
     }
 
@@ -42,10 +39,9 @@ const FeaturedVideoTwoLayout: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row gap-6 mt-10 mx-auto">
-                    {videos?.map((video, index) => (
+                    {data?.map((video, index) => (
                         <Card key={index} card={video} />
-                    ))
-                    }
+                    ))}
                 </div>
             </div>
         </section>
