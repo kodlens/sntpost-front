@@ -12,6 +12,7 @@ import { config } from '../../config/config';
 import { Loader } from 'lucide-react';
 
 interface Video {
+    id?:number;
     title?: string;
     description?: string;
     link: string;
@@ -87,7 +88,7 @@ const DostV: React.FC = () => {
                     <div className="hidden relative lg:flex lg:w-2/3">
                         <div className="absolute inset-0 bg-cover bg-center blur-md"
                             style={{
-                                background: `url(/dostv/${data?.dostv.featured_image})`,
+                                background: `url(${config.baseUri}/storage/dostv/${data?.dostv.featured_image})`,
                                 backgroundRepeat: 'no-repeat',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
@@ -105,7 +106,7 @@ const DostV: React.FC = () => {
                                 className=""
                                 {...settings}>
                                 {data?.videos.map((video, index) => (
-                                    <div key={index}>
+                                    <div key={video.id}>
                                         <ReactPlayer
                                             className="react-player"
                                             width={360}
