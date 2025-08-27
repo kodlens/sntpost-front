@@ -11,41 +11,30 @@ import axios, { AxiosError } from 'axios';
 import { config } from '../../config/config';
 import { Loader } from 'lucide-react';
 
+interface Video {
+    title?: string;
+    description?: string;
+    link: string;
+}
+
+interface DostvData {
+    dostv: {
+        title:string;
+        description: string;
+        featured_image: string;
+        website:string;
+        link:string;
+    };
+
+    videos: Video[]
+}
+
+interface ApiErrorResponse {
+    message: string;
+    errors?: Record<string, string[]>
+}
+
 const DostV: React.FC = () => {
-
-
-    // const [data, setData] = useState<any>([]);
-
-    // const loadAsync = () => {
-    //     axios.get(`${config.baseUri}/api/load-dostv`).then(res=>{
-    //         setData(res.data)
-    //     })
-    // }
-
-    //const { title, description, featured_image, sectionContent., button_text1, button_text2, button_link2, videos } = sectionContent;
-    //this is static for the meantime and will be rebuild in final stage
-    interface Video {
-        title?: string;
-        description?: string;
-        link: string;
-    }
-
-    interface DostvData {
-        dostv: {
-            title:string;
-            description: string;
-            featured_image: string;
-        };
-
-        videos: Video[]
-    }
-
-    interface ApiErrorResponse {
-        message: string;
-        errors?: Record<string, string[]>
-    }
-
-   
 
     const { data, error,  isFetching } = useQuery<DostvData, AxiosError<ApiErrorResponse>>({
         queryKey: ['dostvs'],
@@ -132,8 +121,8 @@ const DostV: React.FC = () => {
                         </div>
 
                         <div className="flex lg:flex-row flex-col mx-2 lg:justify-center mt-8 gap-4">
-                            <Link className='text-white font-bold bg-blue-400 px-6 py-3' target="_blank" to='https://dostv.ph'>Learn More</Link>
-                            <Link className='font-bold text-white px-6 py-3 border-2 border-white lg:mx-0' target="_blank" to="https://www.youtube.com/@DOSTvPH">Visit Youtube</Link>
+                            <Link className='text-white font-bold bg-blue-400 px-6 py-3' target="_blank" to={data ? data?.dostv.website : '#'}>Learn More</Link>
+                            <Link className='font-bold text-white px-6 py-3 border-2 border-white lg:mx-0' target="_blank" to={data ? data?.dostv.link : '#'}>Visit Youtube</Link>
                         </div>
                     </div>
                 </div>
