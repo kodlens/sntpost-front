@@ -2,39 +2,39 @@ import './index.css';
 import axios from "axios";
 import { config } from "../../config/config";
 import type { Banner } from "../../types/banner";
-import Loader from "../../components/Loader";
 import { useQuery } from "@tanstack/react-query";
+import ErrorComponent from '../../components/ErrorComponent';
 
 const MainBanner: React.FC = () => {
 
-    const { data, isFetching } = useQuery<Banner>({
-        queryKey: ['videos'],
-        queryFn: async () => {
-          const res = await axios.get(`${config.baseUri}/api/load-banner`, {
-            headers: {
-              Accept: 'application/json',
-              'Authorization': `Bearer ${config.apiToken}`
-            }
-          })
-          return res.data
+  const { data, error } = useQuery<Banner>({
+    queryKey: ['banner'],
+    queryFn: async () => {
+      const res = await axios.get<Banner>(`${config.baseUri}/api/load-banner`, {
+        headers: {
+          Accept: 'application/json',
+          'Authorization': `Bearer ${config.apiToken}`
         }
-    });
+      })
+
+      console.log(res);
+      
+      return res.data
+    }
+  });
+
+  
+  if(error){
+    return <ErrorComponent />
+  }
 
   return (
     <>
-      {isFetching ? (
-        <Loader />
-      ) : (
-        <div className="mb-0">
-          <img src={`${config.baseUri}/storage/banner_images/${data?.img}`} alt={'Banner'} loading={"lazy"} />
-        </div>
-        // <div className="h-[calc(100vh-70px)] transform transition-transform duration-500 ease-in-out group-hover:scale-110" style={{
-        //   backgroundImage: `url(${config.baseUri}/storage/banner_images/${banner})`,
-        //   backgroundSize: 'cover',
-        //   backgroundPosition: 'center',
-        //   borderRadius: '0',
-        // }}></div>
-      )}
+      <div className="mb-0">
+        <img src={`${config.baseUri}/storage/banner_images/${data?.img}`} 
+          alt={'Banner'} 
+          loading={"lazy"} />
+      </div>
     </>
   )
 }

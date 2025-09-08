@@ -13,6 +13,7 @@ const ArticlesByCategory = lazy(() => import('./pages/articles-by-category'));
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { config } from './config/config';
+import GlobalLoader from './components/GlobalLoader';
 
 const siteKey = config.captchaSiteKey
 
@@ -23,9 +24,8 @@ function App() {
 
   return (
     <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
-
       <QueryClientProvider client={queryClient}>
-        
+        <GlobalLoader />
         <Routes>
           <Route path="/" element={<Homepage />} />
 
