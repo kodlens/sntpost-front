@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import type { Videos } from "../../types/videos";
-import Loader from "../../components/Loader";
 import Card from "../FeaturedVideo/card";
 import { useQuery } from "@tanstack/react-query";
 import { config } from "../../config/config";
@@ -9,7 +8,7 @@ import { config } from "../../config/config";
 const FeaturedVideoTwoLayout = () => {
     
 
-    const { data, isFetching } = useQuery<Videos[]>({
+    const { data } = useQuery<Videos[]>({
         queryKey: ['featured_videos'],
         queryFn: async () => {
             const res = await axios.get(`${config.baseUri}/api/videos/load-featured-videos`,{
@@ -21,12 +20,6 @@ const FeaturedVideoTwoLayout = () => {
             return res.data
         }
     });
-
-
-
-    if(isFetching){
-        <Loader></Loader>
-    }
 
     return (
         <section className="lg:w-7xl lg:mx-auto mx-2">

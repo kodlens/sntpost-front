@@ -37,7 +37,7 @@ interface ApiErrorResponse {
 
 const DostV: React.FC = () => {
 
-    const { data, error,  isFetching } = useQuery<DostvData, AxiosError<ApiErrorResponse>>({
+    const { data, error } = useQuery<DostvData, AxiosError<ApiErrorResponse>>({
         queryKey: ['dostvs'],
         queryFn: async (): Promise<DostvData> => {
             const res = await axios.get<DostvData>(`${config.baseUri}/api/dostv/load-dostv`, {
@@ -51,9 +51,7 @@ const DostV: React.FC = () => {
         }
     })
 
-    if(isFetching){
-        return <Loader />
-    }
+
 
     if(error){
         console.error(error.response?.data.message);

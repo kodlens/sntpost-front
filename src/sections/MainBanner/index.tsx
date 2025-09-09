@@ -18,7 +18,6 @@ const MainBanner: React.FC = () => {
       })
 
       console.log(res);
-      
       return res.data
     }
   });
@@ -30,7 +29,7 @@ const MainBanner: React.FC = () => {
 
   return (
     <>
-      <div className="mb-0">
+      <div className="">
         <img src={`${config.baseUri}/storage/banner_images/${data?.img}`} 
           alt={'Banner'} 
           loading={"lazy"} />

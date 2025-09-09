@@ -49,7 +49,6 @@ function App() {
           <Route element={<MainLayout />} >
             <Route path="/archives" element={<ArchiveIndex />} />
           </Route>
-
         </Routes>
       </QueryClientProvider>
     </GoogleReCaptchaProvider>
