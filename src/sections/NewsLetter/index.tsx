@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NewsLetterImg from "../../Svg/NewsLetterImg"
 import axios from "axios";
 import './index.css'
@@ -35,8 +35,6 @@ const NewsLetter: React.FC = () => {
         }
 
         const token = await executeRecaptcha('form_submit');
-        //console.log(token);
-
         if(!token){
             setErrors('Invalid submission!.')
             return;
@@ -64,10 +62,6 @@ const NewsLetter: React.FC = () => {
             setErrors(err.response.data)
         })
     }
-
-    useEffect(() => {
-        console.log(errors);
-    }, [errors])
 
 
     return (

@@ -9,7 +9,6 @@ import './index.css';
 import { useQuery } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
 import { config } from '../../config/config';
-import { Loader } from 'lucide-react';
 
 interface Video {
     id?:number;
@@ -103,7 +102,7 @@ const DostV: React.FC = () => {
                             <Slider
                                 className=""
                                 {...settings}>
-                                {data?.videos.map((video, index) => (
+                                {data?.videos.map((video) => (
                                     <div key={video.id}>
                                         <ReactPlayer
                                             className="react-player"

@@ -17,8 +17,6 @@ import GlobalLoader from './components/GlobalLoader';
 
 const siteKey = config.captchaSiteKey
 
-console.log(siteKey);
-
 function App() {
   const queryClient = new QueryClient()
 

@@ -16,8 +16,6 @@ const MainBanner: React.FC = () => {
           'Authorization': `Bearer ${config.apiToken}`
         }
       })
-
-      console.log(res);
       return res.data
     }
   });
