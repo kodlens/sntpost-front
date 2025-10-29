@@ -55,8 +55,6 @@ export default function LatestArticles() {
     }
 
 
-
-
     return (
         <section className='w-full bg-white'>
 
@@ -64,7 +62,7 @@ export default function LatestArticles() {
             <div className='xl:w-7xl mx-auto '>
 
                 <div className='flex flex-col lg:flex-row flex-wrap gap-[16px] '>
-                    {data?.map(article => (
+                    {data?.map((article:Article) => (
 
                         <div key={article.id} className='flex flex-col lg:flex-row gap-2 shadow-sm border border-gray mx-2 lg:m-0 lg:w-full lg:p-6 py-4 article rounded-md mb-8'>
 
