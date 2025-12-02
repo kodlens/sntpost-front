@@ -85,13 +85,13 @@ const DostV: React.FC = () => {
                     <div className="hidden relative lg:flex lg:w-2/3">
                         <div className="absolute inset-0 bg-cover bg-center blur-md"
                             style={{
-                                background: `url(${config.baseUri}/storage/dostv/${data?.dostv.featured_image})`,
+                                background: `url(${config.baseUri}/storage/dostv/banners/${data?.dostv.featured_image})`,
                                 backgroundRepeat: 'no-repeat',
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}></div>
 
-                        <img className="p-10 mx-auto z-1" src={`/dostv/${data?.dostv.featured_image ?? 'https://fakeimg.pl/600x400/000000/ffffff?text=Image+Placeholder'}`} alt="" />
+                        <img className="p-10 mx-auto z-1" src={`/storage/dostv/banners/${data?.dostv.featured_image ?? 'https://fakeimg.pl/600x400/000000/ffffff?text=Image+Placeholder'}`} alt="" />
                     </div>
                     
                     <div className="lg:w-1/3 text-center py-2">
