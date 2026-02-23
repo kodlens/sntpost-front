@@ -82,16 +82,16 @@ const MenuButton = () => {
         <>
         <div className="relative inline-block text-left" ref={dropdownRef}>
             <button
-                className="flex items-center h-full md:ml-4 px-4 py-2 hover:bg-blue-200 hover:cursor-pointer transition ease-in-out duration-200"
+                className="flex items-center h-full rounded-full border border-[#c7dced] px-4 py-2 transition duration-200 hover:cursor-pointer hover:bg-[#EAF5FF] md:ml-2"
                 onClick={()=>setOpen(!open)}>
                 
-                <span className="hidden md:inline uppercase font-semibold text-black mr-1">Menu</span>
+                <span className="mr-1 hidden text-sm font-semibold text-[#0A3257] uppercase md:inline">Menu</span>
                 <HamburgerIcon />
             </button>
 
             {/* Dropdown panel */}
             { open && (
-                <div className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-blue-100 ring-opacity-5">
+                <div className="absolute right-0 z-10 mt-2 origin-top-right rounded-xl border border-[#d4e4f2] bg-white shadow-lg ring-1 ring-[#d4e4f2]/40">
                     <div className="flex flex-col w-[300px] p-4">
                         {renderCategories()}
                     </div>

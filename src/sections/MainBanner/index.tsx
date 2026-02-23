@@ -1,30 +1,47 @@
 import './index.css';
 import axios from 'axios';
 import { config } from '../../config/config';
-import type { Banner } from '../../types/banner';
 import { useQuery } from '@tanstack/react-query';
 import ErrorComponent from '../../components/ErrorComponent';
+import type { Magazine } from '../../types/magazine';
 
 const MainBanner: React.FC = () => {
-  const { data, error } = useQuery<Banner>({
-    queryKey: ['banner'],
-    queryFn: async () => {
-      const res = await axios.get<Banner>(`${config.baseUri}/api/load-banner`, {
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${config.apiToken}`,
-        },
-      });
-      return res.data;
-    },
-  });
+
+
+  // const { data, error } = useQuery<Banner>({
+  //   queryKey: ['banner'],
+  //   queryFn: async () => {
+  //     const res = await axios.get<Banner>(`${config.baseUri}/api/load-banner`, {
+  //       headers: {
+  //         Accept: 'application/json',
+  //         Authorization: `Bearer ${config.apiToken}`,
+  //       },
+  //     });
+  //     return res.data;
+  //   },
+  // });
+
+  const { data, error } = useQuery({
+        queryKey: ['magazine'],
+        queryFn: async () => {
+            const res = await axios.get<Magazine>(`${config.baseUri}/api/magazines/load-featured-magazine`, {
+                headers: {
+                    Accept: 'application/json',
+                    'Authorization': `Bearer ${config.apiToken}`
+                }
+            })
+
+            return res.data
+        }
+
+    })
 
   if (error) {
     return <ErrorComponent />;
   }
 
-  const imageUrl = data?.img
-    ? `${config.baseUri}/storage/banner_images/${data.img}`
+  const imageUrl = data?.cover
+    ? `${config.baseUri}/storage/magazines/${data.cover}`
     : undefined;
 
   return (

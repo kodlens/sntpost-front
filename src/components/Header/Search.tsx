@@ -24,10 +24,10 @@ const Search: React.FC = () => {
 
     
     return (
-        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-0 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" type="text" name=""
+        <input className="block w-full rounded-full border border-[#c7dced] bg-white px-4 py-2.5 text-sm text-[#123b60] outline-none transition focus:border-[#0D4E86] focus:ring-2 focus:ring-[#0D4E86]/15" type="text" name=""
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search" id="" />
+            placeholder="Search stories, topics, and updates" id="" />
     )
 }
 

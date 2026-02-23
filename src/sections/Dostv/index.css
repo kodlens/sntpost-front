@@ -1,50 +1,28 @@
 .dostv-section .slick-slide {
-  margin-right: 17px;
-  /* width: 195px !important; */
+  padding: 0 2px;
 }
 
-@media only screen and (max-width: 430px) {
-  .dostv-section .slick-slide {
-    height: 200px;
-    margin-right: 25px;
-  }
+.dostv-section .slick-dots {
+  bottom: -30px;
+}
 
-  .dostv-section .slick-slide > div {
-    height: 100%;
-  }
+.dostv-section .slick-dots li {
+  margin: 0 4px;
+}
 
-  .dostv-section .slide-slide img {
-    object-fit: contain;
-  }
+.dostv-section .slick-dots li button:before {
+  color: #ffffff;
+  opacity: 0.35;
+  font-size: 10px;
+}
 
-  .dostv-section .slick-slider .slick-dots {
-    position: absolute;
-    bottom: -20%;
-  }
+.dostv-section .slick-dots li.slick-active button:before {
+  color: #80caee;
+  opacity: 1;
+}
 
-  .dostv-section .slick-slider .slick-dots li > button::before {
-    color: white;
-    font-size: 0;
-  }
-
-  .dostv-section .slick-slider .slick-dots li.slick-active > button::before {
-    color: #6FD2F9;
-    font-size: 0;
-  }
-
-  .dostv-section .slick-slider .slick-dots li > button {
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-  }
-
-  .dostv-section .slick-slider .slick-dots li.slick-active > button {
-    background: #6FD2F9;
-  }
-
-  .dostv-section .slick-slider .slick-dots {
-    position: absolute;
-    bottom: -15%;
+@media only screen and (max-width: 640px) {
+  .dostv-section .slick-dots {
+    bottom: -24px;
   }
 }

@@ -1,39 +1,49 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
-import { config } from "../../config/config";
-import Loader from "../../components/Loader";
+import { config } from '../../config/config';
+import Loader from '../../components/Loader';
+import moment from 'moment';
+
+interface ArchiveItem {
+  id?: number;
+  title?: string;
+  slug: string;
+  publication_date?: string;
+}
+
+interface ArchiveArticle {
+  year: number;
+  articles: ArchiveItem[];
+}
 
 const ArchiveIndex: React.FC = () => {
-  interface ArchiveArticle {
-    title?: string;
-    slug: string;
-    year: number;
-    data: any[];
-    total: number;
-    articles: any[];
-  }
-
   const [articles, setArticles] = useState<ArchiveArticle[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [openYear, setOpenYear] = useState<number | null>(null);
 
   const loadArchiveArticles = (): void => {
     setLoading(true);
+
     axios
-      .get<ArchiveArticle[]>(
-        `${config.baseUri}/api/articles/load-archive-articles`,
-        {
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${config.apiToken}`,
-          },
-        }
-      )
+      .get<ArchiveArticle[]>(`${config.baseUri}/api/articles/load-archive-articles`, {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${config.apiToken}`,
+        },
+      })
       .then((res) => {
-        setLoading(false);
         setArticles(res.data);
-        //console.log(res.data);
+        if (res.data.length > 0) {
+          setOpenYear(res.data[0].year);
+        }
+      })
+      .catch(() => {
+        setArticles([]);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -41,80 +51,75 @@ const ArchiveIndex: React.FC = () => {
     loadArchiveArticles();
   }, []);
 
-  // const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   //console.log(e)
-  // };
-
   return (
-    <div className="mx-4 my-[100px] lg:w-[1240px] lg:mx-auto">
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="my-4 font-bold">Archive Articles</div>
+    <section className="min-h-screen w-full bg-[#f8fbff] py-10 lg:py-14">
+      <div className="mx-auto w-full max-w-[1240px] px-4 lg:px-8">
+        <div className="mb-8 flex flex-col gap-3 lg:mb-10">
+          <p className="inline-flex w-fit rounded-full border border-[#0D4E86]/20 bg-white px-4 py-1 text-xs font-semibold tracking-[0.18em] text-[#0D4E86] uppercase">
+            Archive Collection
+          </p>
+          <h1 className="text-3xl font-extrabold tracking-wide text-[#092B4A] sm:text-4xl lg:text-5xl">
+            Archive Articles
+          </h1>
+          <p className="text-sm text-[#5C7D9D]">Browse past stories grouped by year.</p>
+        </div>
 
-          <div id="accordion-open" data-accordion="open">
-            {articles.map((article: ArchiveArticle, index) => (
-              <div key={index}>
-                <h4 id="accordion-open-heading-1">
+        {loading ? (
+          <Loader height="h-[60vh]" />
+        ) : articles.length === 0 ? (
+          <div className="rounded-2xl border border-[#d4e4f2] bg-white p-8 text-center text-[#5C7D9D]">
+            No archive articles available.
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {articles.map((yearGroup) => {
+              const isOpen = openYear === yearGroup.year;
+
+              return (
+                <article
+                  key={yearGroup.year}
+                  className="overflow-hidden rounded-2xl border border-[#d4e4f2] bg-white shadow-[0_10px_24px_rgba(20,56,92,0.08)]"
+                >
                   <button
                     type="button"
-                    className={
-                      "flex items-center justify-between w-full border-b-0 p-5 font-medium rtl:text-right  border border-gray-200  focus:ring-4 focus:ring-gray-200 gap-3 "
-                    }
-                    data-accordion-target="#accordion-open-body-1"
-                    aria-expanded="true"
-                    aria-controls="accordion-open-body-1"
+                    onClick={() => setOpenYear(isOpen ? null : yearGroup.year)}
+                    className="flex w-full items-center justify-between px-5 py-4 text-left transition hover:bg-[#F2F8FF] sm:px-6"
                   >
-                    <span className="flex items-center font-bold">
-                      {/* <svg className="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd">
-                        </path>
-                      </svg>  */}
-                      {article.year}
-                    </span>
-                    <svg
-                      data-accordion-icon
-                      className="w-3 h-3 rotate-180 shrink-0"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5 5 1 1 5"
-                      />
-                    </svg>
+                    <div className="flex items-center gap-3">
+                      <span className="rounded-full bg-[#EAF5FF] px-3 py-1 text-xs font-bold text-[#0D4E86]">
+                        {yearGroup.articles.length} article{yearGroup.articles.length > 1 ? 's' : ''}
+                      </span>
+                      <h2 className="text-xl font-bold text-[#0A3257]">{yearGroup.year}</h2>
+                    </div>
+                    <span className={`text-[#0D4E86] transition ${isOpen ? 'rotate-180' : ''}`}>v</span>
                   </button>
-                </h4>
-                <div
-                  id="accordion-open-body-1"
-                  className=""
-                  aria-labelledby="accordion-open-heading-1"
-                >
-                  <div className="p-5 border border-b border-gray-200">
-                    {article.articles.map((item: any, ix) => (
-                      <div key={ix} className="ml-4 my-4">
-                        <Link
-                          to={`/dost/${item.slug}`}
-                          className="text-blue-500"
-                        >
-                          {item.title}
-                        </Link>
+
+                  {isOpen && (
+                    <div className="border-t border-[#e4edf5] px-5 py-4 sm:px-6">
+                      <div className="space-y-3">
+                        {yearGroup.articles.map((item) => (
+                          <div
+                            key={`${yearGroup.year}-${item.slug}`}
+                            className="rounded-xl border border-[#e4edf5] bg-[#fbfdff] px-4 py-3 transition hover:border-[#c5dced]"
+                          >
+                            <Link to={`/dost/${item.slug}`} className="font-semibold text-[#0A3257] hover:text-[#0D4E86]">
+                              {item.title}
+                            </Link>
+                            <p className="mt-1 text-xs text-[#5C7D9D]">
+                              {item.publication_date ? moment(item.publication_date).format('ll') : 'Published date unavailable'}
+                            </p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
           </div>
-        </>
-      )}
-    </div>
+        )}
+      </div>
+    </section>
   );
 };
 

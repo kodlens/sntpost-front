@@ -38,7 +38,7 @@ const MagnifyGlass: React.FC = () =>{
 
     return (
         <>
-            <button onClick={handleModal} className="md:hidden flex items-center ml-4 h-full py-2 px-4 hover:bg-gray-100 transition ease-in-out duration-200">
+            <button onClick={handleModal} className="ml-2 flex h-full items-center rounded-full border border-[#c7dced] px-3 py-2 transition duration-200 hover:bg-[#EAF5FF] md:hidden">
                 <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     width="25px" height="25px" viewBox="0 0 49.999 49.999">
                 <g>
